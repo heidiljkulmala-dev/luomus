@@ -85,7 +85,7 @@ export default function ProjectsPage() {
           {projects.length === 0 ? (
             <Card className="p-8 text-center text-muted">
               No projects yet. Browse{" "}
-              <Link href="/patterns" className="text-accent hover:underline">patterns</Link> to start one.
+              <Link href="/showroom" className="text-accent hover:underline">showroom</Link> to start one.
             </Card>
           ) : (
             projects.map((project) => {

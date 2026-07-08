@@ -4,7 +4,7 @@ import { site } from "@/lib/site";
 
 const footerLinks = {
   Explore: [
-    { href: "/patterns", label: "Crafts" },
+    { href: "/showroom", label: "Showroom" },
     { href: "/traditional-crafts", label: "Traditional crafts" },
     { href: "/tutorials", label: "Tutorials" },
     { href: "/shop-finder", label: "Suppliers" },
@@ -13,7 +13,6 @@ const footerLinks = {
   Community: [
     { href: "/feed", label: "Feed" },
     { href: "/community", label: "Forum" },
-    { href: "/projects", label: "Profile" },
     { href: "/marketplace", label: "Shop" },
   ],
   Site: [

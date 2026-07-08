@@ -12,12 +12,11 @@ import { useAuth } from "@/components/auth/AuthProvider";
 const navItems = [
   { href: "/", label: "Home" },
   { href: "/feed", label: "Feed" },
-  { href: "/patterns", label: "Crafts" },
+  { href: "/showroom", label: "Showroom" },
   { href: "/tutorials", label: "Tutorials" },
   { href: "/marketplace", label: "Shop" },
   { href: "/shop-finder", label: "Suppliers" },
   { href: "/events", label: "Events" },
-  { href: "/projects", label: "Profile" },
   { href: "/community", label: "Community" },
 ];
 
@@ -64,8 +63,11 @@ export function Navbar() {
             <>
               <Link
                 href={`/profile/${user.username}`}
-                className="px-2 text-[0.98rem] font-semibold leading-none tracking-[-0.015em] text-purple-dark hover:text-purple"
+                className="flex items-center gap-2 px-2 text-[0.98rem] font-semibold leading-none tracking-[-0.015em] text-purple-dark hover:text-purple"
               >
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-accent to-amber text-xs font-bold text-white">
+                  {user.avatar}
+                </div>
                 {user.displayName}
               </Link>
               <Button variant="ghost" size="sm" onClick={handleLogout}>
@@ -114,6 +116,50 @@ export function Navbar() {
               {label}
             </Link>
           ))}
+
+          <div className="mt-3 border-t border-surface-muted pt-3 space-y-1">
+            {loading ? (
+              <div className="h-10 rounded-lg bg-surface-muted animate-pulse" />
+            ) : user ? (
+              <>
+                <Link
+                  href={`/profile/${user.username}`}
+                  onClick={() => setOpen(false)}
+                  className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-[1.03rem] font-semibold leading-none tracking-[-0.015em] text-purple-dark hover:bg-yellow-soft"
+                >
+                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-accent to-amber text-xs font-bold text-white">
+                    {user.avatar}
+                  </div>
+                  {user.displayName}
+                </Link>
+                <button
+                  type="button"
+                  onClick={handleLogout}
+                  className="flex w-full items-center gap-2 rounded-lg px-3 py-2.5 text-[1.03rem] font-semibold leading-none tracking-[-0.015em] text-muted hover:bg-yellow-soft"
+                >
+                  <LogOut className="h-4 w-4" />
+                  Sign out
+                </button>
+              </>
+            ) : (
+              <>
+                <Link
+                  href="/auth/sign-in"
+                  onClick={() => setOpen(false)}
+                  className="block rounded-lg px-3 py-2.5 text-[1.03rem] font-semibold leading-none tracking-[-0.015em] text-muted hover:bg-yellow-soft"
+                >
+                  Sign in
+                </Link>
+                <Link
+                  href="/auth/sign-up"
+                  onClick={() => setOpen(false)}
+                  className="block rounded-lg px-3 py-2.5 text-[1.03rem] font-semibold leading-none tracking-[-0.015em] text-purple-dark bg-gradient-to-r from-purple-soft to-pink-soft"
+                >
+                  Sign up
+                </Link>
+              </>
+            )}
+          </div>
         </div>
       )}
     </header>

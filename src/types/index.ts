@@ -61,6 +61,21 @@ export type Pattern = {
   likes: number;
 };
 
+export type ShowcaseItem = {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  craft: CraftId;
+  makerUsername: string;
+  makerDisplayName: string;
+  makerAvatar: string;
+  likes: number;
+  createdAt: string;
+  patternId?: string;
+  tutorialId?: string;
+};
+
 export type BeadShop = {
   id: string;
   name: string;

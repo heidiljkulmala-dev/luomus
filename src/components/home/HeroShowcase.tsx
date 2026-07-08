@@ -1,12 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Badge } from "@/components/ui/Badge";
-import type { Pattern } from "@/types";
+import type { ShowcaseItem } from "@/types";
 
 const badgeVariant = (i: number) =>
   i % 3 === 0 ? "purple" : i % 3 === 1 ? "pink" : "yellow";
 
-export function HeroShowcase({ patterns }: { patterns: Pattern[] }) {
+export function HeroShowcase({ patterns }: { patterns: ShowcaseItem[] }) {
   const [hero, topRight, midRight, bottomLeft, bottomRight] = patterns;
 
   if (!hero) return null;
@@ -21,7 +21,7 @@ export function HeroShowcase({ patterns }: { patterns: Pattern[] }) {
       <div className="relative grid grid-cols-2 gap-3 sm:h-[min(560px,72vh)] sm:grid-cols-12 sm:grid-rows-8">
         <ShowcaseTile
           pattern={hero}
-          href="/patterns"
+          href="/showroom"
           className="col-span-2 sm:col-span-7 sm:row-span-5 min-h-[220px] sm:min-h-0"
           badgeVariant={badgeVariant(0)}
           priority
@@ -31,7 +31,7 @@ export function HeroShowcase({ patterns }: { patterns: Pattern[] }) {
         {topRight && (
           <ShowcaseTile
             pattern={topRight}
-            href="/patterns"
+            href="/showroom"
             className="col-span-1 sm:col-span-5 sm:row-span-3 min-h-[140px] sm:min-h-0"
             badgeVariant={badgeVariant(1)}
             sizes="(max-width: 1024px) 50vw, 28vw"
@@ -41,7 +41,7 @@ export function HeroShowcase({ patterns }: { patterns: Pattern[] }) {
         {midRight && (
           <ShowcaseTile
             pattern={midRight}
-            href="/patterns"
+            href="/showroom"
             className="col-span-1 sm:col-span-5 sm:row-span-2 min-h-[120px] sm:min-h-0"
             badgeVariant={badgeVariant(2)}
             sizes="(max-width: 1024px) 50vw, 28vw"
@@ -51,7 +51,7 @@ export function HeroShowcase({ patterns }: { patterns: Pattern[] }) {
         {bottomLeft && (
           <ShowcaseTile
             pattern={bottomLeft}
-            href="/patterns"
+            href="/showroom"
             className="col-span-1 sm:col-span-4 sm:row-span-3 min-h-[130px] sm:min-h-0"
             badgeVariant={badgeVariant(3)}
             sizes="(max-width: 1024px) 50vw, 22vw"
@@ -61,7 +61,7 @@ export function HeroShowcase({ patterns }: { patterns: Pattern[] }) {
         {bottomRight && (
           <ShowcaseTile
             pattern={bottomRight}
-            href="/patterns"
+            href="/showroom"
             className="col-span-1 sm:col-span-3 sm:row-span-3 min-h-[130px] sm:min-h-0"
             badgeVariant={badgeVariant(4)}
             sizes="(max-width: 1024px) 50vw, 18vw"
@@ -84,7 +84,7 @@ function ShowcaseTile({
   priority = false,
   sizes,
 }: {
-  pattern: Pattern;
+  pattern: ShowcaseItem;
   href: string;
   className?: string;
   badgeVariant: "purple" | "pink" | "yellow";

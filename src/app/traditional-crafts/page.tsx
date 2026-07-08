@@ -46,11 +46,11 @@ function TraditionalCraftsContent() {
       <div className="bg-gradient-to-b from-yellow/15 via-pink-soft/30 to-transparent py-12">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <Link
-            href="/patterns"
+            href="/showroom"
             className="inline-flex items-center gap-1.5 text-sm text-muted hover:text-purple-dark mb-4 font-header"
           >
             <ArrowLeft className="h-4 w-4" />
-            Back to crafts
+            Back to showroom
           </Link>
           <div className="flex items-start gap-3">
             <div className="flex h-12 w-12 items-center justify-center rounded-full bg-yellow-soft text-purple-dark">
@@ -148,7 +148,7 @@ function TraditionalCraftsContent() {
                     ))}
                   </div>
                   <Link
-                    href={`/patterns?craft=${craft.craft}`}
+                    href={`/showroom?craft=${craft.craft}`}
                     className="mt-4 inline-block text-xs font-semibold text-purple-dark hover:text-pink font-header"
                   >
                     Explore {craftLabel(craft.craft)} projects →

@@ -34,19 +34,23 @@ export default function AboutPage() {
           craft with humility rather than appropriation.
         </p>
 
-        <div className="mt-10 pt-8 border-t border-border">
-          <h2 className="text-sm font-semibold uppercase tracking-wider text-purple-dark mb-3">Crafts</h2>
+        <div className="mt-10 pt-8">
+          <h2 className="text-sm font-semibold uppercase tracking-wider text-purple-dark mb-3">Showroom</h2>
           <div className="flex flex-wrap gap-2">
             {craftCategories.map((c) => (
-              <span key={c.id} className="rounded-md border border-border bg-white px-2.5 py-1 text-sm text-muted">
+              <Link
+                key={c.id}
+                href={`/showroom?craft=${c.id}`}
+                className="rounded-md border border-border bg-white px-2.5 py-1 text-sm text-muted hover:border-purple hover:text-purple-dark transition-colors"
+              >
                 {c.emoji} {c.label}
-              </span>
+              </Link>
             ))}
           </div>
         </div>
 
         <div className="mt-10">
-          <Link href="/patterns"><Button>Browse templates</Button></Link>
+          <Link href="/showroom"><Button>Browse the showroom</Button></Link>
         </div>
       </div>
     </div>

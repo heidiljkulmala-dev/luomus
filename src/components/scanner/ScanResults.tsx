@@ -195,7 +195,7 @@ export function ScanResults({ result, preview }: Props) {
           <h3 className="font-display text-lg font-semibold text-purple-dark mb-4">Similar patterns to try</h3>
           <div className="grid sm:grid-cols-2 gap-4">
             {result.similarPatterns.map((p) => (
-              <Link key={p.id} href="/patterns">
+              <Link key={p.id} href="/showroom">
                 <Card hover className="flex gap-4 p-3">
                   <div className="relative h-20 w-20 rounded-lg overflow-hidden shrink-0">
                     <Image src={p.image} alt={p.title} fill className="object-cover" sizes="80px" />

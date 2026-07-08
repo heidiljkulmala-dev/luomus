@@ -14,7 +14,7 @@ import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { HeroShowcase } from "@/components/home/HeroShowcase";
-import { patterns } from "@/lib/data/patterns";
+import { showcaseItems } from "@/lib/data/showroom";
 import { featuredCreators } from "@/lib/data/users";
 import { communityPosts, craftSubforums } from "@/lib/data/community";
 import { craftCategories, site } from "@/lib/site";
@@ -50,9 +50,9 @@ const pillars = [
     icon: Globe2,
   },
   {
-    title: "Craft Methods",
-    description: "Explore different ways of making — from beading and knitting to pottery, sewing, and more.",
-    href: "/patterns",
+    title: "Showroom",
+    description: "Browse finished crafts from makers worldwide — filter by discipline and discover work worth studying.",
+    href: "/showroom",
     accent: "yellow" as const,
     icon: Palette,
   },
@@ -68,7 +68,7 @@ const pillars = [
 const badgeForAccent = { purple: "purple" as const, pink: "pink" as const, yellow: "yellow" as const };
 
 export default function HomePage() {
-  const heroProjects = patterns.slice(0, 5);
+  const heroProjects = showcaseItems.slice(0, 5);
   const posts = communityPosts.slice(0, 3);
 
   return (
@@ -95,9 +95,9 @@ export default function HomePage() {
                     <ArrowRight className="h-4 w-4" />
                   </Button>
                 </Link>
-                <Link href="/patterns">
+                <Link href="/showroom">
                   <Button variant="pink" size="lg">
-                    Explore crafts
+                    Browse the showroom
                   </Button>
                 </Link>
               </div>
@@ -176,7 +176,7 @@ export default function HomePage() {
               return (
                 <Link
                   key={c.id}
-                  href={`/patterns?craft=${c.id}`}
+                  href={`/showroom?craft=${c.id}`}
                   className={`inline-flex items-center gap-2 rounded-md border border-border px-3 py-2 text-sm text-purple-dark transition-colors font-header ${
                     i % 3 === 0 ? "bg-pink-soft/85" : i % 3 === 1 ? "bg-white/80" : "bg-yellow-soft/65"
                   } ${hover}`}
