@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { MessageCircle, Heart, Plus, Filter, Users } from "lucide-react";
 import { Badge } from "@/components/ui/Badge";
@@ -36,6 +36,20 @@ const categoryColors: Record<string, "amber" | "accent" | "purple"> = {
 };
 
 export default function CommunityPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen craft-grid flex items-center justify-center text-muted">
+          Loading...
+        </div>
+      }
+    >
+      <CommunityContent />
+    </Suspense>
+  );
+}
+
+function CommunityContent() {
   const { user } = useAuth();
   const searchParams = useSearchParams();
   const craftParam = searchParams.get("craft");

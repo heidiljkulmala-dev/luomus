@@ -45,7 +45,7 @@ export function TradeOfferModal({ listing, onClose, onSuccess }: TradeOfferModal
   useEffect(() => {
     if (!listing) return;
     const ownerName =
-      listing.type === "craft" ? listing.seller.displayName : listing.owner.displayName;
+      listing.type === "tutorial" ? listing.owner.displayName : listing.seller.displayName;
     setMessage(
       `Hi ${ownerName}! I'd love to trade my craft for your ${listing.title}. Let me know if you're interested!`
     );
@@ -54,8 +54,11 @@ export function TradeOfferModal({ listing, onClose, onSuccess }: TradeOfferModal
 
   if (!listing) return null;
 
-  const image = listing.type === "craft" ? listing.image : listing.thumbnail;
-  const owner = listing.type === "craft" ? listing.seller : listing.owner;
+  const image =
+    listing.type === "craft" || listing.type === "material"
+      ? listing.image
+      : listing.thumbnail;
+  const owner = listing.type === "tutorial" ? listing.owner : listing.seller;
   const selected = offerables.find((o) => o.id === offeredId);
 
   async function handleSubmit(e: React.FormEvent) {
