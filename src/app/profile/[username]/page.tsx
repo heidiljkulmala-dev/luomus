@@ -119,7 +119,7 @@ export default async function ProfilePage({
 
         <div className="py-8 text-center">
           <Link href="/" className="text-sm text-muted hover:text-accent transition-colors">
-            ← Back to craftopia home
+            ← Back to luomus home
           </Link>
         </div>
       </div>

@@ -101,7 +101,7 @@ export const communityPosts: CommunityPost[] = [
     avatar: "YL",
     username: "yarnloop",
     title: "Finished my first chunky cardigan!",
-    content: "Three weeks of knitting and I'm so proud. Used the Cloud Cardigan template on craftopia. Tips for blocking?",
+    content: "Three weeks of knitting and I'm so proud. Used the Cloud Cardigan template on luomus. Tips for blocking?",
     category: "showcase",
     craft: "fiber",
     replies: 18,

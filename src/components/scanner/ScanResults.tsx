@@ -181,7 +181,7 @@ export function ScanResults({ result, preview }: Props) {
                   </Button>
                 </a>
                 <Link href="/shop-finder">
-                  <Button variant="ghost" size="sm">Browse in craftopia</Button>
+                  <Button variant="ghost" size="sm">Browse in luomus</Button>
                 </Link>
               </div>
             </Card>

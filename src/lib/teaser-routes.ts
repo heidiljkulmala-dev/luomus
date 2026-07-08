@@ -24,7 +24,7 @@ export const teaserContent: Record<
   marketplace: {
     title: "Maker Shop",
     description:
-      "Shop handmade crafts and supplies from craftopia makers — or propose a trade. Sign in to buy, sell, and send trade offers.",
+      "Shop handmade crafts and supplies from luomus makers — or propose a trade. Sign in to buy, sell, and send trade offers.",
   },
   events: {
     title: "Craft Events",

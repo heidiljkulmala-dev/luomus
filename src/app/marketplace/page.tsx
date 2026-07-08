@@ -136,7 +136,7 @@ export default function MarketplacePage() {
             <div>
               <h1 className="font-display text-4xl font-bold text-purple-dark">Maker Shop</h1>
               <p className="mt-2 text-muted max-w-xl">
-                Shop handmade crafts and craft supplies from craftopia makers — or propose a trade with
+                Shop handmade crafts and craft supplies from luomus makers — or propose a trade with
                 your own craft or tutorial.
               </p>
             </div>

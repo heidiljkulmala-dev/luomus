@@ -87,7 +87,7 @@ function ShowroomContent() {
               Showroom
             </h1>
             <p className="mt-3 text-muted max-w-xl font-body leading-relaxed">
-              Browse finished crafts from craftopia makers — beading, fiber, pottery, and every
+              Browse finished crafts from luomus makers — beading, fiber, pottery, and every
               discipline in between. Filter by craft type and discover work worth studying.
             </p>
           </div>
