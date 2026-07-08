@@ -23,15 +23,16 @@
   --color-surface-muted: #f7ede2;
   --color-border: #f5cac3;
   --color-muted: #66536c;
-  --font-display: var(--font-display-face);
+  --font-display: var(--font-title-stack);
   --font-body: var(--font-body-face);
   --font-logo: var(--font-logo-face);
-  --font-header: var(--font-header-face);
+  --font-header: var(--font-title-stack);
 }
 
 :root {
   --background: #fffaf6;
   --foreground: #25142f;
+  --font-title-stack: var(--font-title-face), system-ui, sans-serif;
 }
 
 body {
@@ -87,6 +88,7 @@ body {
 }
 
 .hero-headline {
+  font-family: var(--font-title-stack);
   font-size: clamp(2.5rem, 5vw + 1rem, 4.25rem);
   line-height: 1.22;
   letter-spacing: -0.04em;
@@ -110,12 +112,20 @@ body {
   text-wrap: pretty;
 }
 
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-title-stack);
+}
+
 .font-logo {
   font-family: var(--font-logo-face), system-ui, sans-serif;
 }
 
-.font-header {
-  font-family: var(--font-header-face), system-ui, sans-serif;
+.font-header,
+.font-display {
+  font-family: var(--font-title-stack);
 }
 
 .card-hover {

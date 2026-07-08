@@ -3,7 +3,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { AuthProvider } from "@/components/auth/AuthProvider";
 import { site } from "@/lib/site";
-import { logoFont, headerFont, bodyFont } from "@/lib/fonts";
+import { logoFont, titleFont, bodyFont } from "@/lib/fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${logoFont.variable} ${headerFont.variable} ${bodyFont.variable} h-full antialiased`}
+      className={`${logoFont.variable} ${titleFont.variable} ${bodyFont.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-body bg-background text-foreground">
         <AuthProvider>

@@ -1,4 +1,4 @@
-import { Sora, Outfit, Plus_Jakarta_Sans } from "next/font/google";
+import { Sora, DM_Sans, Plus_Jakarta_Sans } from "next/font/google";
 
 export const logoFont = Sora({
   variable: "--font-logo-face",
@@ -7,10 +7,10 @@ export const logoFont = Sora({
   display: "swap",
 });
 
-export const headerFont = Outfit({
-  variable: "--font-header-face",
+export const titleFont = DM_Sans({
+  variable: "--font-title-face",
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: ["600", "700"],
   display: "swap",
 });
 
