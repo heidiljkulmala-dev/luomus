@@ -1,5 +1,7 @@
 # Luomus
 
+> **Canonical project folder.** All development lives here at `/Users/heidikulmala/Projects/luomus`. The old `beaders` folder was a stale build cache only and can be deleted.
+
 **Luomus** — *Create. Craft. Connect.*
 
 The modern website for makers of every craft and art: beading, knitting, pottery, painting, macramé, sewing, paper crafts, and more.
