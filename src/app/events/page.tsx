@@ -25,6 +25,8 @@ import { craftCategories } from "@/lib/site";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
+import { TeaserGate } from "@/components/auth/TeaserGate";
+import { teaserContent } from "@/lib/teaser-routes";
 import type { CraftId, EventType } from "@/types";
 
 const typeBadgeVariant: Record<EventType, "amber" | "purple" | "pink" | "accent"> = {
@@ -33,6 +35,8 @@ const typeBadgeVariant: Record<EventType, "amber" | "purple" | "pink" | "accent"
   workshop: "pink",
   meetup: "accent",
 };
+
+const teaser = teaserContent.events;
 
 export default function EventsPage() {
   const [eventType, setEventType] = useState<EventType | "all">("all");
@@ -58,6 +62,7 @@ export default function EventsPage() {
   const worldwideCount = filterEvents(craftEvents, eventType, craft).length;
 
   return (
+    <TeaserGate title={teaser.title} description={teaser.description}>
     <div className="min-h-screen craft-grid">
       <div className="bg-gradient-to-b from-pink/10 to-transparent py-12">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
@@ -290,5 +295,6 @@ export default function EventsPage() {
         </div>
       </div>
     </div>
+    </TeaserGate>
   );
 }

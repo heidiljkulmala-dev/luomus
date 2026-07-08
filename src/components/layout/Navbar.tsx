@@ -10,7 +10,6 @@ import { Logo } from "@/components/brand/Logo";
 import { useAuth } from "@/components/auth/AuthProvider";
 
 const navItems = [
-  { href: "/", label: "Home" },
   { href: "/feed", label: "Feed" },
   { href: "/showroom", label: "Showroom" },
   { href: "/tutorials", label: "Tutorials" },

@@ -1,8 +1,8 @@
-# Luomus
+# craftopia
 
 > **Canonical project folder.** All development lives here at `/Users/heidikulmala/Projects/luomus`. The old `beaders` folder was a stale build cache only and can be deleted.
 
-**Luomus** — *Create. Craft. Connect.*
+**craftopia** — *Create. Craft. Connect.*
 
 The modern website for makers of every craft and art: beading, knitting, pottery, painting, macramé, sewing, paper crafts, and more.
 
@@ -31,4 +31,4 @@ Open [http://localhost:3000](http://localhost:3000)
 
 ## Design
 
-Editorial craft-magazine UI with the luomus logo — thread, brush, spark, and bead united in one mark.
+Editorial craft-magazine UI with the craftopia logo — thread, brush, spark, and bead united in one mark.

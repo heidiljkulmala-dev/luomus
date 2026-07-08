@@ -73,7 +73,7 @@ export function SellMaterialsModal({ onClose }: SellMaterialsModalProps) {
           ) : (
             <form id="sell-materials-form" onSubmit={handleSubmit} className="space-y-4">
               <p className="text-sm text-muted">
-                List leftover beads, yarn, clay, tools, or fabric for fellow Luomus makers.
+                List leftover beads, yarn, clay, tools, or fabric for fellow craftopia makers.
               </p>
 
               <div>

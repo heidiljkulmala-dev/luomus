@@ -3,6 +3,8 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { ArrowLeftRight, Package, Plus, RefreshCw } from "lucide-react";
 import { useAuth } from "@/components/auth/AuthProvider";
+import { TeaserGate } from "@/components/auth/TeaserGate";
+import { teaserContent } from "@/lib/teaser-routes";
 import {
   CraftListingCard,
   MaterialListingCard,
@@ -26,6 +28,8 @@ import type {
 
 type ViewFilter = "all" | "trade-friendly";
 type CategoryFilter = "all" | "crafts" | "tutorials" | "materials";
+
+const teaser = teaserContent.marketplace;
 
 export default function MarketplacePage() {
   const { user } = useAuth();
@@ -124,6 +128,7 @@ export default function MarketplacePage() {
   }
 
   return (
+    <TeaserGate title={teaser.title} description={teaser.description}>
     <div className="min-h-screen craft-grid">
       <div className="bg-gradient-to-b from-yellow/10 to-transparent py-12">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
@@ -131,7 +136,7 @@ export default function MarketplacePage() {
             <div>
               <h1 className="font-display text-4xl font-bold text-purple-dark">Maker Shop</h1>
               <p className="mt-2 text-muted max-w-xl">
-                Shop handmade crafts and craft supplies from Luomus makers — or propose a trade with
+                Shop handmade crafts and craft supplies from craftopia makers — or propose a trade with
                 your own craft or tutorial.
               </p>
             </div>
@@ -329,5 +334,6 @@ export default function MarketplacePage() {
 
       {showSuccess && <TradeSuccessToast onDismiss={() => setShowSuccess(false)} />}
     </div>
+    </TeaserGate>
   );
 }

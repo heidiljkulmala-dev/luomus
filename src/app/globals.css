@@ -60,7 +60,20 @@ body {
 }
 
 .home-section-crafts {
+  position: relative;
   background-color: #f5cac3;
+  background-image:
+    linear-gradient(
+      135deg,
+      rgba(247, 237, 226, 0.93) 0%,
+      rgba(245, 202, 195, 0.86) 42%,
+      rgba(37, 20, 47, 0.24) 100%
+    ),
+    url("https://images.unsplash.com/photo-1459908676235-d5f02a50184b?w=1920&q=80&fit=crop");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 28rem;
 }
 
 .home-section-heritage {
@@ -90,17 +103,17 @@ body {
 .hero-headline {
   font-family: var(--font-title-stack);
   font-size: clamp(2.5rem, 5vw + 1rem, 4.25rem);
-  line-height: 1.22;
+  line-height: 1.18;
   letter-spacing: -0.04em;
   text-wrap: balance;
   overflow: visible;
-  padding-bottom: 0.1em;
+  padding-bottom: 0.12em;
 }
 
 .hero-headline .gradient-text {
   display: inline;
-  line-height: 1.22;
-  padding: 0.02em 0 0.14em;
+  line-height: 1.18;
+  padding: 0.04em 0 0.17em;
   overflow: visible;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;

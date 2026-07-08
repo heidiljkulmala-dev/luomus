@@ -45,7 +45,7 @@ export default function SignInPage() {
         <div className="mb-8">
           <Link href="/"><Logo /></Link>
           <h1 className="font-header text-2xl font-bold text-purple-dark mt-6">Sign in</h1>
-          <p className="text-sm text-muted mt-1">Welcome back to Luomus</p>
+          <p className="text-sm text-muted mt-1">Welcome back to craftopia</p>
         </div>
         <form onSubmit={handleSubmit} className="space-y-4">
           {error && <div className="rounded-md border border-red-200 bg-red-50 text-red-700 text-sm px-3 py-2">{error}</div>}

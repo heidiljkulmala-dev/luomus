@@ -81,7 +81,7 @@ export default function ScannerPage() {
           <Badge variant="amber" className="mb-3">Photo · Camera · Smart matching</Badge>
           <h1 className="font-display text-4xl font-bold text-purple-dark">Material Matcher</h1>
           <p className="mt-2 text-muted max-w-2xl">
-            Snap or upload a photo of a finished piece or a single material. Luomus analyzes the colors
+            Snap or upload a photo of a finished piece or a single material. craftopia analyzes the colors
             and suggests matching supplies, shops, tools, and steps to create something similar.
           </p>
         </div>

@@ -153,7 +153,7 @@ export default function HomePage() {
 
       <section className="home-section-crafts w-full py-12 lg:py-16">
         <div className="mx-auto max-w-6xl px-4 lg:px-6">
-          <div className="mb-5 flex flex-wrap items-end justify-between gap-3 rounded-[2rem] bg-white/55 p-5 shadow-[0_16px_48px_rgba(37,20,47,0.05)] lg:p-6">
+          <div className="mb-5 flex flex-wrap items-end justify-between gap-3 rounded-[2rem] bg-white/70 p-5 shadow-[0_16px_48px_rgba(37,20,47,0.06)] backdrop-blur-sm lg:p-6">
             <div>
               <h2 className="font-header text-3xl font-bold tracking-[-0.035em] text-purple-dark">
                 Ways of crafting
@@ -165,7 +165,7 @@ export default function HomePage() {
             </div>
             <Badge variant="amber">Handmade craft & DIY</Badge>
           </div>
-          <div className="flex flex-wrap gap-2 rounded-[1.75rem] bg-white/35 p-5 lg:p-6">
+          <div className="flex flex-wrap gap-2 rounded-[1.75rem] bg-white/55 p-5 shadow-[0_12px_40px_rgba(37,20,47,0.04)] backdrop-blur-sm lg:p-6">
             {craftCategories.map((c, i) => {
               const hover =
                 i % 3 === 0
@@ -205,35 +205,52 @@ export default function HomePage() {
             </p>
           </div>
           <div className="rounded-[2rem] bg-purple-soft/80 p-5 shadow-[0_20px_50px_rgba(37,20,47,0.04)] lg:p-6">
-            <div className="flex flex-wrap gap-2">
-              {continents.map((c, i) => {
-              const hover =
-                i % 3 === 0
-                  ? "hover:border-purple hover:bg-purple-soft"
-                  : i % 3 === 1
-                    ? "hover:border-pink hover:bg-pink-soft"
-                    : "hover:border-yellow hover:bg-yellow-soft";
-              return (
-                <Link
-                  key={c.id}
-                  href={`/traditional-crafts?continent=${c.id}`}
-                  className={`inline-flex items-center gap-2 rounded-md border border-border px-3 py-2 text-sm text-purple-dark transition-colors font-header ${
-                    i % 3 === 0 ? "bg-yellow-soft/65" : i % 3 === 1 ? "bg-pink-soft/85" : "bg-white/80"
-                  } ${hover}`}
-                >
-                  <span>{c.emoji}</span>
-                  {c.label}
-                </Link>
-              );
-            })}
-            </div>
-            <div className="mt-6">
-              <Link href="/traditional-crafts">
-                <Button variant="outline">
-                  Browse all traditions
-                  <ArrowRight className="h-4 w-4" />
-                </Button>
-              </Link>
+            <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-start">
+              <div>
+                <div className="flex flex-wrap gap-2">
+                  {continents.map((c, i) => {
+                    const hover =
+                      i % 3 === 0
+                        ? "hover:border-purple hover:bg-purple-soft"
+                        : i % 3 === 1
+                          ? "hover:border-pink hover:bg-pink-soft"
+                          : "hover:border-yellow hover:bg-yellow-soft";
+                    return (
+                      <Link
+                        key={c.id}
+                        href={`/traditional-crafts?continent=${c.id}`}
+                        className={`inline-flex items-center gap-2 rounded-md border border-border px-3 py-2 text-sm text-purple-dark transition-colors font-header ${
+                          i % 3 === 0 ? "bg-yellow-soft/65" : i % 3 === 1 ? "bg-pink-soft/85" : "bg-white/80"
+                        } ${hover}`}
+                      >
+                        <span>{c.emoji}</span>
+                        {c.label}
+                      </Link>
+                    );
+                  })}
+                </div>
+                <div className="mt-6">
+                  <Link href="/traditional-crafts">
+                    <Button variant="outline">
+                      Browse all traditions
+                      <ArrowRight className="h-4 w-4" />
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+              <div className="relative mx-auto aspect-[4/5] w-full max-w-[11.5rem] overflow-hidden rounded-[1.5rem] border border-white/65 shadow-[0_16px_34px_rgba(37,20,47,0.14)] sm:max-w-[13rem] lg:mx-0 lg:ml-auto">
+                <img
+                  src="https://images.unsplash.com/photo-1558171813-4c088753af8f?w=960&h=1200&fit=crop"
+                  alt="Hands weaving colorful traditional textile patterns."
+                  className="h-full w-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-purple-dark/65 via-purple-dark/10 to-transparent" />
+                <p className="pointer-events-none absolute bottom-3 left-3 right-3 rounded-md bg-white/78 px-3 py-2 text-xs leading-5 text-purple-dark font-body backdrop-blur-sm">
+                  Traditional weaving techniques passed down through generations.
+                </p>
+              </div>
             </div>
           </div>
         </div>

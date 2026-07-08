@@ -17,7 +17,7 @@ export function Logo({
         className
       )}
     >
-      luomus
+      craftopia
     </span>
   );
 }

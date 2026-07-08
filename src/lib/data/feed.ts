@@ -38,7 +38,7 @@ export const feedPosts: FeedPost[] = [
     authorDisplayName: "Yarn Loop",
     authorAvatar: "YL",
     content:
-      "Three weeks of knitting and my chunky cardigan is finally off the needles! Used the Cloud Cardigan template on Luomus. Now for blocking…",
+      "Three weeks of knitting and my chunky cardigan is finally off the needles! Used the Cloud Cardigan template on craftopia. Now for blocking…",
     image:
       "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=800&h=600&fit=crop",
     craftTags: ["Knitting", "Fiber", "Wearable"],

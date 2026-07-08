@@ -9,14 +9,20 @@ import { continents, traditionalCrafts, type ContinentId } from "@/lib/data/trad
 import { craftCategories } from "@/lib/site";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
+import { TeaserGate } from "@/components/auth/TeaserGate";
+import { teaserContent } from "@/lib/teaser-routes";
 
 const continentIds = new Set(continents.map((c) => c.id));
 
+const teaser = teaserContent["traditional-crafts"];
+
 export default function TraditionalCraftsPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen craft-grid flex items-center justify-center text-muted">Loading...</div>}>
-      <TraditionalCraftsContent />
-    </Suspense>
+    <TeaserGate title={teaser.title} description={teaser.description}>
+      <Suspense fallback={<div className="min-h-screen craft-grid flex items-center justify-center text-muted">Loading...</div>}>
+        <TraditionalCraftsContent />
+      </Suspense>
+    </TeaserGate>
   );
 }
 
