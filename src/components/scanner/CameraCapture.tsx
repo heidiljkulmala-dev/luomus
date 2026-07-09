@@ -105,7 +105,7 @@ export function CameraCapture({ onCapture, onClose }: Props) {
         <Button
           variant="ghost"
           size="sm"
-          className="text-white hover:bg-white/10"
+          className="text-white hover:bg-purple-dark/35"
           onClick={() => setFacing((f) => (f === "environment" ? "user" : "environment"))}
         >
           <SwitchCamera className="h-4 w-4" /> Flip

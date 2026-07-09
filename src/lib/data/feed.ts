@@ -2,6 +2,7 @@ import type { FeedPost } from "@/types";
 
 /** Default usernames the demo user (maya-chen) follows on first visit. */
 export const defaultFollowing = ["elena-rossi", "yarnloop", "studioluna"];
+export const defaultFollowedTopics = ["beading", "tips", "knitting", "painting"];
 
 export const feedPosts: FeedPost[] = [
   {
@@ -168,7 +169,41 @@ export function getPostsByUsername(username: string): FeedPost[] {
   return feedPosts.filter((p) => p.authorUsername === username);
 }
 
-export function getFeedForFollowing(following: string[]): FeedPost[] {
-  if (following.length === 0) return [];
-  return feedPosts.filter((p) => following.includes(p.authorUsername));
+export function normalizeTopic(topic: string): string {
+  return topic.trim().replace(/^#/, "").toLowerCase();
+}
+
+export function extractTopics(input: string): string[] {
+  const fromHash = Array.from(input.matchAll(/#([a-zA-Z0-9-_]+)/g)).map((m) =>
+    normalizeTopic(m[1] ?? "")
+  );
+  const fromCsv = input
+    .split(",")
+    .map((part) => normalizeTopic(part))
+    .filter(Boolean);
+  return Array.from(new Set([...fromHash, ...fromCsv]));
+}
+
+type FeedFilterOptions = {
+  following: string[];
+  followedTopics?: string[];
+  posts?: FeedPost[];
+  currentUsername?: string;
+};
+
+export function getFeedForFollowing({
+  following,
+  followedTopics = [],
+  posts = feedPosts,
+  currentUsername,
+}: FeedFilterOptions): FeedPost[] {
+  const normalizedTopics = new Set(followedTopics.map((topic) => normalizeTopic(topic)));
+  if (following.length === 0 && normalizedTopics.size === 0 && !currentUsername) return [];
+
+  return posts.filter((post) => {
+    const fromFollowedUser = following.includes(post.authorUsername);
+    const fromCurrentUser = currentUsername ? post.authorUsername === currentUsername : false;
+    const matchesTopic = post.craftTags.some((tag) => normalizedTopics.has(normalizeTopic(tag)));
+    return fromFollowedUser || fromCurrentUser || matchesTopic;
+  });
 }

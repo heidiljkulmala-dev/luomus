@@ -55,7 +55,7 @@ export function SellMaterialsModal({ onClose }: SellMaterialsModalProps) {
                 Sign in to list beads, yarn, clay, tools, and other craft supplies.
               </p>
               <Link href="/auth/sign-in?redirect=/marketplace">
-                <Button variant="secondary">Sign in</Button>
+                <Button>Sign in</Button>
               </Link>
             </div>
           ) : submitted ? (
@@ -73,7 +73,7 @@ export function SellMaterialsModal({ onClose }: SellMaterialsModalProps) {
           ) : (
             <form id="sell-materials-form" onSubmit={handleSubmit} className="space-y-4">
               <p className="text-sm text-muted">
-                List leftover beads, yarn, clay, tools, or fabric for fellow luomus makers.
+                List leftover beads, yarn, clay, tools, or fabric for fellow Luomus makers.
               </p>
 
               <div>

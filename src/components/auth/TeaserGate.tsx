@@ -59,7 +59,7 @@ export function TeaserGate({ title, description, children }: TeaserGateProps) {
           <p className="mt-3 text-sm leading-6 text-muted font-body">{description}</p>
           <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Link href={signInHref}>
-              <Button variant="secondary">Sign in</Button>
+              <Button>Sign in</Button>
             </Link>
             <Link href={signUpHref}>
               <Button variant="outline">Create account</Button>

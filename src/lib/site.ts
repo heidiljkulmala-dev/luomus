@@ -1,5 +1,5 @@
 export const site = {
-  name: "luomus",
+  name: "Luomus",
   tagline: "Craft. Share. Connect.",
   description:
     "A global community for crafters to connect, share ideas, and showcase their work. Find tutorials, buy and sell handmade crafts, discover suppliers near and far, explore different ways of making, and join the forum.",

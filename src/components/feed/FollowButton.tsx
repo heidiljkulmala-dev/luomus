@@ -26,7 +26,7 @@ export function FollowButton({
 
   return (
     <Button
-      variant={following ? "outline" : "secondary"}
+      variant={following ? "outline" : "primary"}
       size={size}
       onClick={() => toggleFollow(username)}
       disabled={!ready}

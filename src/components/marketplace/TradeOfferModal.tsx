@@ -149,7 +149,7 @@ export function TradeOfferModal({ listing, onClose, onSuccess }: TradeOfferModal
                 Sign in to offer one of your crafts or tutorials in exchange.
               </p>
               <Link href="/auth/sign-in?redirect=/marketplace">
-                <Button variant="secondary">Sign in</Button>
+                <Button>Sign in</Button>
               </Link>
             </div>
           ) : (

@@ -66,14 +66,14 @@ export default async function ProfilePage({
       </div>
 
       <div className="mx-auto max-w-7xl px-4 pt-6 sm:pt-8 lg:px-8">
-        <div className="relative flex flex-col sm:flex-row sm:items-start gap-4 pb-8 border-b border-purple/10">
+        <div className="relative flex flex-col gap-4 rounded-[1.75rem] border border-purple/10 bg-white/70 p-5 shadow-[0_20px_50px_rgba(37,20,47,0.04)] sm:flex-row sm:items-start sm:p-6 lg:p-8">
           <div className="-mt-16 sm:-mt-20 shrink-0 flex h-28 w-28 sm:h-32 sm:w-32 items-center justify-center rounded-2xl bg-gradient-to-br from-accent to-amber text-white text-3xl font-bold border-4 border-surface shadow-xl">
             {user.avatar}
           </div>
-          <div className="flex-1 min-w-0 sm:pt-6">
-            <h1 className="font-display text-3xl font-bold text-purple-dark">{user.displayName}</h1>
+          <div className="min-w-0 flex-1 sm:pt-6">
+            <h1 className="font-header text-3xl font-bold tracking-[-0.03em] text-purple-dark">{user.displayName}</h1>
             <p className="text-muted mt-1">@{user.username}</p>
-            {user.bio && <p className="text-sm text-muted mt-2 max-w-xl">{user.bio}</p>}
+            {user.bio && <p className="mt-2 max-w-xl text-sm text-muted font-body">{user.bio}</p>}
             <div className="flex flex-wrap items-center gap-4 mt-3 text-sm text-muted">
               {user.location && (
                 <span className="flex items-center gap-1">
@@ -119,7 +119,7 @@ export default async function ProfilePage({
 
         <div className="py-8 text-center">
           <Link href="/" className="text-sm text-muted hover:text-accent transition-colors">
-            ← Back to luomus home
+            ← Back to Luomus home
           </Link>
         </div>
       </div>

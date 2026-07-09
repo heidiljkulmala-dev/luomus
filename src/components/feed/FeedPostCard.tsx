@@ -20,6 +20,9 @@ export function FeedPostCard({
   showFollow = true,
 }: FeedPostCardProps) {
   const isOwnPost = currentUsername === post.authorUsername;
+  const topicChips = post.craftTags.map((tag) =>
+    `#${tag.toLowerCase().trim().replace(/\s+/g, "-")}`
+  );
 
   return (
     <Card className="overflow-hidden">
@@ -44,10 +47,10 @@ export function FeedPostCard({
             <p className="mt-3 text-sm leading-relaxed text-purple-dark/90">
               {post.content}
             </p>
-            {post.craftTags.length > 0 && (
+            {topicChips.length > 0 && (
               <div className="mt-3 flex flex-wrap gap-1.5">
-                {post.craftTags.map((tag) => (
-                  <Badge key={tag} variant="accent">
+                {topicChips.map((tag) => (
+                  <Badge key={`${post.id}-${tag}`} variant="accent">
                     {tag}
                   </Badge>
                 ))}

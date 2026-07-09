@@ -8,6 +8,7 @@ import { Search, Heart, ArrowUpDown, Sparkles } from "lucide-react";
 import { showcaseItems } from "@/lib/data/showroom";
 import { craftCategories } from "@/lib/site";
 import { Badge } from "@/components/ui/Badge";
+import { Button, SMALL_CHIP_ACTIVE_PATTERN, SMALL_CHIP_PATTERN } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import type { CraftId } from "@/types";
 
@@ -77,11 +78,11 @@ function ShowroomContent() {
             <Badge variant="amber" className="mb-4 uppercase tracking-[0.2em]">
               Maker gallery
             </Badge>
-            <h1 className="font-display text-4xl font-bold text-purple-dark lg:text-5xl">
+            <h1 className="font-header text-4xl font-bold tracking-[-0.035em] text-purple-dark lg:text-5xl">
               Showroom
             </h1>
-            <p className="mt-3 text-muted max-w-xl font-body leading-relaxed">
-              Browse finished crafts from luomus makers — beading, fiber, pottery, and every
+            <p className="mt-3 max-w-xl text-muted font-body leading-relaxed">
+              Browse finished crafts from Luomus makers — beading, fiber, pottery, and every
               discipline in between. Filter by craft type and discover work worth studying.
             </p>
           </div>
@@ -115,7 +116,7 @@ function ShowroomContent() {
               placeholder="Search crafts, makers..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full rounded-xl border border-purple/15 bg-white pl-10 pr-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-pink/30"
+              className="w-full rounded-xl border border-purple/15 bg-white/90 py-2.5 pl-10 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-pink/30"
             />
           </div>
           <div className="flex items-center gap-2">
@@ -125,10 +126,8 @@ function ShowroomContent() {
                 <button
                   key={option}
                   onClick={() => setSort(option)}
-                  className={`rounded-full px-4 py-1.5 text-xs font-medium capitalize font-header transition-colors ${
-                    sort === option
-                      ? "bg-purple-dark text-white"
-                      : "text-muted hover:text-purple-dark"
+                  className={`${SMALL_CHIP_PATTERN} capitalize ${
+                    sort === option ? SMALL_CHIP_ACTIVE_PATTERN : ""
                   }`}
                 >
                   {option}
@@ -141,11 +140,7 @@ function ShowroomContent() {
         <div className="flex flex-wrap gap-2 mb-8">
           <button
             onClick={() => setCraft("all")}
-            className={`rounded-full px-3 py-1.5 text-xs font-medium font-header transition-colors ${
-              craft === "all"
-                ? "bg-purple text-white"
-                : "bg-white text-muted ring-1 ring-purple/10 hover:text-purple-dark"
-            }`}
+            className={`${SMALL_CHIP_PATTERN} ${craft === "all" ? SMALL_CHIP_ACTIVE_PATTERN : ""}`}
           >
             All crafts
           </button>
@@ -153,11 +148,7 @@ function ShowroomContent() {
             <button
               key={c.id}
               onClick={() => setCraft(c.id)}
-              className={`rounded-full px-3 py-1.5 text-xs font-medium font-header transition-colors ${
-                craft === c.id
-                  ? "bg-purple text-white"
-                  : "bg-white text-muted ring-1 ring-purple/10 hover:text-purple-dark"
-              }`}
+              className={`${SMALL_CHIP_PATTERN} ${craft === c.id ? SMALL_CHIP_ACTIVE_PATTERN : ""}`}
             >
               {c.emoji} {c.label.split(" ")[0]}
             </button>
@@ -232,15 +223,16 @@ function ShowroomContent() {
             <p className="mt-2 text-sm text-muted font-body">
               Try a different craft type or clear your search.
             </p>
-            <button
+            <Button
+              size="sm"
+              className="mt-4"
               onClick={() => {
                 setSearch("");
                 setCraft("all");
               }}
-              className="mt-4 rounded-full bg-purple-dark px-5 py-2 text-sm font-medium text-white font-header"
             >
               Reset filters
-            </button>
+            </Button>
           </div>
         )}
       </div>

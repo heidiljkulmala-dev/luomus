@@ -15,7 +15,7 @@ import {
   TradeSuccessToast,
 } from "@/components/marketplace/TradeOfferModal";
 import { Badge } from "@/components/ui/Badge";
-import { Button } from "@/components/ui/Button";
+import { Button, SMALL_CHIP_ACTIVE_PATTERN, SMALL_CHIP_PATTERN } from "@/components/ui/Button";
 import type {
   MarketplaceCraft,
   MarketplaceListing,
@@ -129,14 +129,14 @@ export default function MarketplacePage() {
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
             <div>
-              <h1 className="font-display text-4xl font-bold text-purple-dark">Maker Shop</h1>
-              <p className="mt-2 text-muted max-w-xl">
-                Shop handmade crafts and craft supplies from luomus makers — or propose a trade with
+              <h1 className="font-header text-4xl font-bold tracking-[-0.035em] text-purple-dark">Maker Shop</h1>
+              <p className="mt-3 max-w-xl text-muted font-body">
+                Shop handmade crafts and craft supplies from Luomus makers — or propose a trade with
                 your own craft or tutorial.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
-              <Button variant="yellow" onClick={() => setShowSellMaterials(true)}>
+              <Button variant="yellow" size="lg" onClick={() => setShowSellMaterials(true)}>
                 <Plus className="h-4 w-4" /> Sell materials
               </Button>
               <div className="flex items-center gap-2 rounded-full bg-white/80 border border-border px-4 py-2 text-sm text-muted">
@@ -162,11 +162,7 @@ export default function MarketplacePage() {
               <button
                 key={tab.id}
                 onClick={() => setViewFilter(tab.id)}
-                className={`rounded-full px-4 py-1.5 text-xs font-medium transition-colors ${
-                  viewFilter === tab.id
-                    ? "bg-purple text-white"
-                    : "bg-white/80 text-muted hover:bg-purple/10"
-                }`}
+                className={`${SMALL_CHIP_PATTERN} ${viewFilter === tab.id ? SMALL_CHIP_ACTIVE_PATTERN : ""}`}
               >
                 {tab.label}
               </button>
@@ -185,11 +181,7 @@ export default function MarketplacePage() {
               <button
                 key={tab.id}
                 onClick={() => setCategoryFilter(tab.id)}
-                className={`rounded-full px-4 py-1.5 text-xs font-medium transition-colors ${
-                  categoryFilter === tab.id
-                    ? "bg-yellow text-purple-dark ring-1 ring-yellow/30"
-                    : "bg-white/80 text-muted hover:bg-yellow-soft"
-                }`}
+                className={`${SMALL_CHIP_PATTERN} ${categoryFilter === tab.id ? SMALL_CHIP_ACTIVE_PATTERN : ""}`}
               >
                 {tab.label}
               </button>
@@ -200,7 +192,7 @@ export default function MarketplacePage() {
         {user && myOffers.length > 0 && (
           <div className="mb-8 rounded-2xl border border-border bg-purple-soft/40 p-4">
             <div className="flex items-center justify-between gap-3 mb-3">
-              <h2 className="font-display text-lg font-bold text-purple-dark">Your trade offers</h2>
+              <h2 className="font-header text-lg font-bold text-purple-dark">Your trade offers</h2>
               <button
                 type="button"
                 onClick={loadOffers}
@@ -248,7 +240,7 @@ export default function MarketplacePage() {
             {showCrafts && filteredCrafts.length > 0 && (
               <section>
                 {categoryFilter === "all" && (
-                  <h2 className="font-display text-xl font-bold text-purple-dark mb-4">Crafts</h2>
+                  <h2 className="mb-4 font-header text-xl font-bold text-purple-dark">Crafts</h2>
                 )}
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                   {filteredCrafts.map((craft) => (
@@ -266,7 +258,7 @@ export default function MarketplacePage() {
             {showTutorials && filteredTutorials.length > 0 && (
               <section>
                 {categoryFilter === "all" && (
-                  <h2 className="font-display text-xl font-bold text-purple-dark mb-4">Tutorials</h2>
+                  <h2 className="mb-4 font-header text-xl font-bold text-purple-dark">Tutorials</h2>
                 )}
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   {filteredTutorials.map((tutorial) => (
@@ -285,7 +277,7 @@ export default function MarketplacePage() {
               <section>
                 {categoryFilter === "all" && (
                   <div className="flex items-center gap-2 mb-4">
-                    <h2 className="font-display text-xl font-bold text-purple-dark">Materials & supplies</h2>
+                    <h2 className="font-header text-xl font-bold text-purple-dark">Materials & supplies</h2>
                     <Package className="h-5 w-5 text-yellow" />
                   </div>
                 )}

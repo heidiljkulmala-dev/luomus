@@ -128,7 +128,7 @@ export function ListingDetailPanel({ listing, onClose, onProposeTrade }: Listing
               </Button>
             )}
             {(isCraft || isMaterial) && (
-              <Button variant="secondary">
+              <Button>
                 <ShoppingBag className="h-4 w-4" /> Buy now
               </Button>
             )}

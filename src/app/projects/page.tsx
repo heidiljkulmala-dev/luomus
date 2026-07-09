@@ -57,7 +57,7 @@ export default function ProjectsPage() {
         <h1 className="font-display text-3xl font-bold text-purple-dark">My Studio</h1>
         <p className="text-muted mt-2 mb-6">Sign in to track your craft projects</p>
         <Link href="/auth/sign-in">
-          <Button variant="secondary">Sign In</Button>
+          <Button size="lg">Sign In</Button>
         </Link>
       </div>
     );
@@ -73,7 +73,7 @@ export default function ProjectsPage() {
               Track works in progress, save color palettes, and never lose your place in a pattern.
             </p>
           </div>
-          <Button variant="secondary">
+          <Button size="lg">
             <Plus className="h-4 w-4" /> New Project
           </Button>
         </div>

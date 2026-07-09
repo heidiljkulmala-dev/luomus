@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { MessageCircle, Heart, Plus, Filter, Users } from "lucide-react";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
-import { Button } from "@/components/ui/Button";
+import { Button, SMALL_CHIP_ACTIVE_PATTERN, SMALL_CHIP_PATTERN } from "@/components/ui/Button";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { craftSubforums } from "@/lib/data/community";
 import type { CraftId } from "@/types";
@@ -118,19 +118,19 @@ function CommunityContent() {
       <div className="bg-gradient-to-b from-purple/10 to-transparent py-12">
         <div className="mx-auto max-w-7xl px-4 lg:px-8 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
           <div>
-            <h1 className="font-display text-4xl font-bold text-purple-dark">Community Forum</h1>
-            <p className="mt-2 text-muted max-w-xl">
+            <h1 className="font-header text-4xl font-bold tracking-[-0.035em] text-purple-dark">Community Forum</h1>
+            <p className="mt-3 max-w-xl text-muted font-body">
               Ask questions, share tips, and showcase your work — organized by craft type so you
               can find the makers and conversations that matter to you.
             </p>
           </div>
           {user ? (
-            <Button variant="secondary" onClick={() => setShowNewPost(!showNewPost)}>
+            <Button size="lg" onClick={() => setShowNewPost(!showNewPost)}>
               <Plus className="h-4 w-4" /> New Post
             </Button>
           ) : (
             <Link href="/auth/sign-in">
-              <Button variant="secondary">Sign in to post</Button>
+              <Button size="lg">Sign in to post</Button>
             </Link>
           )}
         </div>
@@ -139,7 +139,7 @@ function CommunityContent() {
       <div className="mx-auto max-w-7xl px-4 lg:px-8 py-8">
         <div className="mb-10">
           <div className="flex items-center justify-between gap-4 mb-5">
-            <h2 className="font-display text-xl font-semibold text-purple-dark">Browse by craft</h2>
+            <h2 className="font-header text-xl font-semibold text-purple-dark">Browse by craft</h2>
             {craft !== "all" && (
               <button
                 onClick={() => setCraft("all")}
@@ -167,7 +167,7 @@ function CommunityContent() {
                       {subforum.emoji}
                     </span>
                     <div className="flex-1 min-w-0">
-                      <h3 className="font-display font-semibold text-purple-dark">{subforum.label}</h3>
+                      <h3 className="font-header font-semibold text-purple-dark">{subforum.label}</h3>
                       <p className="text-xs text-muted mt-1 leading-relaxed line-clamp-2">
                         {subforum.description}
                       </p>
@@ -190,7 +190,7 @@ function CommunityContent() {
           <div className="mb-8 rounded-2xl bg-gradient-to-r from-purple/5 to-accent/5 p-5">
             <div className="flex items-center gap-2 mb-1">
               <span className="text-xl" aria-hidden="true">{activeSubforum.emoji}</span>
-              <h3 className="font-display text-lg font-semibold text-purple-dark">
+              <h3 className="font-header text-lg font-semibold text-purple-dark">
                 {activeSubforum.label}
               </h3>
             </div>
@@ -203,7 +203,7 @@ function CommunityContent() {
 
         {showNewPost && user && (
           <Card className="p-6 mb-8">
-            <h3 className="font-display text-lg font-semibold text-purple-dark mb-4">Create a post</h3>
+            <h3 className="mb-4 font-header text-lg font-semibold text-purple-dark">Create a post</h3>
             <form onSubmit={handlePost} className="space-y-3">
               <input
                 type="text"
@@ -239,10 +239,8 @@ function CommunityContent() {
             <button
               key={cat}
               onClick={() => setCategory(cat)}
-              className={`rounded-full px-4 py-1.5 text-xs font-medium capitalize whitespace-nowrap transition-colors ${
-                category === cat
-                  ? "bg-purple text-white"
-                  : "bg-white/80 text-muted hover:bg-purple/10"
+              className={`${SMALL_CHIP_PATTERN} capitalize whitespace-nowrap ${
+                category === cat ? SMALL_CHIP_ACTIVE_PATTERN : ""
               }`}
             >
               {cat}
@@ -289,7 +287,7 @@ function CommunityContent() {
                         <Badge variant={categoryColors[post.category] ?? "default"}>{post.category}</Badge>
                         <span className="text-xs text-muted">{post.createdAt}</span>
                       </div>
-                      <h3 className="font-display text-lg font-semibold text-purple-dark">{post.title}</h3>
+                      <h3 className="font-header text-lg font-semibold text-purple-dark">{post.title}</h3>
                       <p className="text-sm text-muted mt-2 leading-relaxed">{post.content}</p>
                       <div className="flex flex-wrap gap-1.5 mt-3">
                         {post.tags.map((tag) => (

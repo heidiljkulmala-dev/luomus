@@ -71,7 +71,7 @@ export function CraftListingCard({ craft, onProposeTrade, onViewDetail }: CraftC
                 <ArrowLeftRight className="h-3.5 w-3.5" /> Trade
               </Button>
             )}
-            <Button variant="secondary" size="sm">
+            <Button size="sm">
               <ShoppingBag className="h-3.5 w-3.5" /> Buy
             </Button>
           </div>
@@ -210,7 +210,7 @@ export function MaterialListingCard({ material, onViewDetail }: MaterialCardProp
           <span className="font-display text-lg font-bold text-purple-dark">
             {formatPrice(material.price)}
           </span>
-          <Button variant="secondary" size="sm" onClick={() => onViewDetail(material)}>
+          <Button size="sm" onClick={() => onViewDetail(material)}>
             <ShoppingBag className="h-3.5 w-3.5" /> Buy
           </Button>
         </div>

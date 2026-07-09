@@ -6,7 +6,7 @@ import { Play, ExternalLink, Upload, Eye, Clock } from "lucide-react";
 import { tutorials } from "@/lib/data/tutorials";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
-import { Button } from "@/components/ui/Button";
+import { Button, SMALL_CHIP_ACTIVE_PATTERN, SMALL_CHIP_PATTERN } from "@/components/ui/Button";
 import { formatNumber } from "@/lib/utils";
 
 const tabs = ["all", "video", "link"] as const;
@@ -22,12 +22,12 @@ export default function TutorialsPage() {
       <div className="bg-gradient-to-b from-accent/10 to-transparent py-12">
         <div className="mx-auto max-w-7xl px-4 lg:px-8 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
           <div>
-            <h1 className="font-display text-4xl font-bold text-purple-dark">Tutorials</h1>
-            <p className="mt-2 text-muted max-w-xl">
+            <h1 className="font-header text-4xl font-bold tracking-[-0.035em] text-purple-dark">Tutorials</h1>
+            <p className="mt-3 max-w-xl text-muted font-body">
               Watch creator-uploaded videos and explore curated links to the best craft tutorials on the web.
             </p>
           </div>
-          <Button variant="secondary">
+          <Button size="lg">
             <Upload className="h-4 w-4" /> Upload Tutorial
           </Button>
         </div>
@@ -39,9 +39,7 @@ export default function TutorialsPage() {
             <button
               key={t}
               onClick={() => setTab(t)}
-              className={`rounded-full px-4 py-1.5 text-xs font-medium capitalize transition-colors ${
-                tab === t ? "bg-purple text-white" : "bg-white/80 text-muted hover:bg-purple/10"
-              }`}
+              className={`${SMALL_CHIP_PATTERN} capitalize ${tab === t ? SMALL_CHIP_ACTIVE_PATTERN : ""}`}
             >
               {t === "link" ? "External Links" : t === "video" ? "Creator Videos" : "All"}
             </button>
@@ -77,9 +75,9 @@ export default function TutorialsPage() {
                 </Badge>
               </div>
               <div className="p-4">
-                <h3 className="font-semibold text-purple-dark line-clamp-2">{tutorial.title}</h3>
-                <p className="text-sm text-muted mt-1 line-clamp-2">{tutorial.description}</p>
-                <div className="flex items-center justify-between mt-3 text-xs text-muted">
+                <h3 className="line-clamp-2 font-header font-semibold text-purple-dark">{tutorial.title}</h3>
+                <p className="mt-1 line-clamp-2 text-sm text-muted font-body">{tutorial.description}</p>
+                <div className="mt-3 flex items-center justify-between text-xs text-muted font-body">
                   <span>{tutorial.author}</span>
                   <span className="flex items-center gap-1">
                     <Eye className="h-3.5 w-3.5" /> {formatNumber(tutorial.views)} views

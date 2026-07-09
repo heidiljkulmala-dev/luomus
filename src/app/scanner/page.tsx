@@ -4,7 +4,7 @@ import { useState, useCallback, useRef } from "react";
 import Image from "next/image";
 import { Upload, Scan, Camera, Gem, CircleDot, RotateCcw } from "lucide-react";
 import { Badge } from "@/components/ui/Badge";
-import { Button } from "@/components/ui/Button";
+import { Button, SMALL_CHIP_ACTIVE_PATTERN, SMALL_CHIP_PATTERN } from "@/components/ui/Button";
 import { CameraCapture } from "@/components/scanner/CameraCapture";
 import { ScanResults } from "@/components/scanner/ScanResults";
 import { analyzeImage } from "@/lib/scanner/analyze-image";
@@ -81,7 +81,7 @@ export default function ScannerPage() {
           <Badge variant="amber" className="mb-3">Photo · Camera · Smart matching</Badge>
           <h1 className="font-display text-4xl font-bold text-purple-dark">Material Matcher</h1>
           <p className="mt-2 text-muted max-w-2xl">
-            Snap or upload a photo of a finished piece or a single material. luomus analyzes the colors
+            Snap or upload a photo of a finished piece or a single material. Luomus analyzes the colors
             and suggests matching supplies, shops, tools, and steps to create something similar.
           </p>
         </div>
@@ -92,21 +92,15 @@ export default function ScannerPage() {
         <div className="flex flex-wrap gap-2 mb-6">
           <button
             onClick={() => { setScanMode("jewelry"); resetScan(); }}
-            className={`flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium transition-colors ${
-              scanMode === "jewelry"
-                ? "bg-purple text-white shadow-md"
-                : "bg-white/80 text-muted hover:bg-purple/10"
+            className={`${SMALL_CHIP_PATTERN} ${
+              scanMode === "jewelry" ? SMALL_CHIP_ACTIVE_PATTERN : ""
             }`}
           >
             <Gem className="h-4 w-4" /> Full jewelry piece
           </button>
           <button
             onClick={() => { setScanMode("bead"); resetScan(); }}
-            className={`flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium transition-colors ${
-              scanMode === "bead"
-                ? "bg-purple text-white shadow-md"
-                : "bg-white/80 text-muted hover:bg-purple/10"
-            }`}
+            className={`${SMALL_CHIP_PATTERN} ${scanMode === "bead" ? SMALL_CHIP_ACTIVE_PATTERN : ""}`}
           >
             <CircleDot className="h-4 w-4" /> Single bead close-up
           </button>

@@ -60,19 +60,7 @@ body {
 }
 
 .home-section-crafts {
-  position: relative;
   background-color: #f5cac3;
-  background-image:
-    linear-gradient(
-      135deg,
-      rgba(247, 237, 226, 0.93) 0%,
-      rgba(245, 202, 195, 0.86) 42%,
-      rgba(37, 20, 47, 0.24) 100%
-    ),
-    url("https://images.unsplash.com/photo-1459908676235-d5f02a50184b?w=1920&q=80&fit=crop");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   min-height: 28rem;
 }
 
