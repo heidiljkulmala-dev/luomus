@@ -7,8 +7,6 @@ import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { useAuth } from "@/components/auth/AuthProvider";
-import { TeaserGate } from "@/components/auth/TeaserGate";
-import { teaserContent } from "@/lib/teaser-routes";
 import { craftSubforums } from "@/lib/data/community";
 import type { CraftId } from "@/types";
 import Link from "next/link";
@@ -30,8 +28,6 @@ type Post = {
 
 const topicCategories = ["all", "tips", "help", "showcase", "discussion"] as const;
 
-const teaser = teaserContent.community;
-
 const categoryColors: Record<string, "amber" | "accent" | "purple"> = {
   tips: "amber",
   help: "accent",
@@ -41,17 +37,15 @@ const categoryColors: Record<string, "amber" | "accent" | "purple"> = {
 
 export default function CommunityPage() {
   return (
-    <TeaserGate title={teaser.title} description={teaser.description}>
-      <Suspense
-        fallback={
-          <div className="min-h-screen craft-grid flex items-center justify-center text-muted">
-            Loading...
-          </div>
-        }
-      >
-        <CommunityContent />
-      </Suspense>
-    </TeaserGate>
+    <Suspense
+      fallback={
+        <div className="min-h-screen craft-grid flex items-center justify-center text-muted">
+          Loading...
+        </div>
+      }
+    >
+      <CommunityContent />
+    </Suspense>
   );
 }
 

@@ -3,8 +3,6 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { ArrowLeftRight, Package, Plus, RefreshCw } from "lucide-react";
 import { useAuth } from "@/components/auth/AuthProvider";
-import { TeaserGate } from "@/components/auth/TeaserGate";
-import { teaserContent } from "@/lib/teaser-routes";
 import {
   CraftListingCard,
   MaterialListingCard,
@@ -28,8 +26,6 @@ import type {
 
 type ViewFilter = "all" | "trade-friendly";
 type CategoryFilter = "all" | "crafts" | "tutorials" | "materials";
-
-const teaser = teaserContent.marketplace;
 
 export default function MarketplacePage() {
   const { user } = useAuth();
@@ -128,7 +124,6 @@ export default function MarketplacePage() {
   }
 
   return (
-    <TeaserGate title={teaser.title} description={teaser.description}>
     <div className="min-h-screen craft-grid">
       <div className="bg-gradient-to-b from-yellow/10 to-transparent py-12">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
@@ -334,6 +329,5 @@ export default function MarketplacePage() {
 
       {showSuccess && <TradeSuccessToast onDismiss={() => setShowSuccess(false)} />}
     </div>
-    </TeaserGate>
   );
 }

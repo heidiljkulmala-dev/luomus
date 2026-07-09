@@ -7,13 +7,9 @@ import { tutorials } from "@/lib/data/tutorials";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
-import { TeaserGate } from "@/components/auth/TeaserGate";
-import { teaserContent } from "@/lib/teaser-routes";
 import { formatNumber } from "@/lib/utils";
 
 const tabs = ["all", "video", "link"] as const;
-
-const teaser = teaserContent.tutorials;
 
 export default function TutorialsPage() {
   const [tab, setTab] = useState<(typeof tabs)[number]>("all");
@@ -22,7 +18,6 @@ export default function TutorialsPage() {
     tab === "all" ? tutorials : tutorials.filter((t) => t.type === tab);
 
   return (
-    <TeaserGate title={teaser.title} description={teaser.description}>
     <div className="min-h-screen craft-grid">
       <div className="bg-gradient-to-b from-accent/10 to-transparent py-12">
         <div className="mx-auto max-w-7xl px-4 lg:px-8 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
@@ -102,6 +97,5 @@ export default function TutorialsPage() {
         </div>
       </div>
     </div>
-    </TeaserGate>
   );
 }

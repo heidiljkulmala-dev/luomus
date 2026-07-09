@@ -95,11 +95,6 @@ export default function HomePage() {
                     <ArrowRight className="h-4 w-4" />
                   </Button>
                 </Link>
-                <Link href="/showroom">
-                  <Button variant="pink" size="lg">
-                    Browse the showroom
-                  </Button>
-                </Link>
               </div>
             </div>
 
@@ -205,7 +200,7 @@ export default function HomePage() {
             </p>
           </div>
           <div className="rounded-[2rem] bg-purple-soft/80 p-5 shadow-[0_20px_50px_rgba(37,20,47,0.04)] lg:p-6">
-            <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-start">
+            <div className="space-y-6">
               <div>
                 <div className="flex flex-wrap gap-2">
                   {continents.map((c, i) => {
@@ -237,19 +232,6 @@ export default function HomePage() {
                     </Button>
                   </Link>
                 </div>
-              </div>
-              <div className="relative mx-auto aspect-[4/5] w-full max-w-[11.5rem] overflow-hidden rounded-[1.5rem] border border-white/65 shadow-[0_16px_34px_rgba(37,20,47,0.14)] sm:max-w-[13rem] lg:mx-0 lg:ml-auto">
-                <img
-                  src="https://images.unsplash.com/photo-1558171813-4c088753af8f?w=960&h=1200&fit=crop"
-                  alt="Hands weaving colorful traditional textile patterns."
-                  className="h-full w-full object-cover"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-purple-dark/65 via-purple-dark/10 to-transparent" />
-                <p className="pointer-events-none absolute bottom-3 left-3 right-3 rounded-md bg-white/78 px-3 py-2 text-xs leading-5 text-purple-dark font-body backdrop-blur-sm">
-                  Traditional weaving techniques passed down through generations.
-                </p>
               </div>
             </div>
           </div>

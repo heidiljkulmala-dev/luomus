@@ -4,16 +4,13 @@ import { useMemo } from "react";
 import Link from "next/link";
 import { Rss, Users } from "lucide-react";
 import { useAuth } from "@/components/auth/AuthProvider";
-import { TeaserGate } from "@/components/auth/TeaserGate";
 import { FeedPostCard } from "@/components/feed/FeedPostCard";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { feedPosts, getFeedForFollowing } from "@/lib/data/feed";
-import { teaserContent } from "@/lib/teaser-routes";
 import { useFollowing } from "@/lib/follow/use-following";
 import { users } from "@/lib/data/users";
 
-const teaser = teaserContent.feed;
 const previewPosts = feedPosts.slice(0, 5);
 
 export default function FeedPage() {
@@ -30,8 +27,7 @@ export default function FeedPage() {
   }, [following]);
 
   return (
-    <TeaserGate title={teaser.title} description={teaser.description}>
-      <div className="min-h-screen craft-grid">
+    <div className="min-h-screen craft-grid">
         <div className="bg-gradient-to-b from-yellow/15 to-transparent py-12">
           <div className="mx-auto max-w-2xl px-4 lg:px-8">
             <div className="flex items-center gap-3">
@@ -97,6 +93,5 @@ export default function FeedPage() {
           )}
         </div>
       </div>
-    </TeaserGate>
   );
 }
